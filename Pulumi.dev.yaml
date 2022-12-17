@@ -1,0 +1,6 @@
+secretsprovider: awskms://358b5ce5-6d6e-477f-9304-f265b87b1d3b
+encryptedkey: AQICAHiO+4df63WSs7HUFeWRpmugJQ8fuL94tFj8G1cxhIRfhAGC7jLDBqfSbSzZtKOhTd1dAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMLaTguSg98GpJA2YbAgEQgDuxzOShN0dnpJ+0sJ4bhoFI6RSPdBNwVI7uPjs8Pwcqc13og/bHVzrr6FdWGIRFkkOPwJRvfVoNmvELnA==
+config:
+  aws:region: eu-west-1
+  pulumi-ecs:vpc:
+    vpc_cidr: 10.10.0.0/16
