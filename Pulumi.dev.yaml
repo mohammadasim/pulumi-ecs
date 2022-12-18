@@ -2,5 +2,31 @@ secretsprovider: awskms://358b5ce5-6d6e-477f-9304-f265b87b1d3b
 encryptedkey: AQICAHiO+4df63WSs7HUFeWRpmugJQ8fuL94tFj8G1cxhIRfhAGC7jLDBqfSbSzZtKOhTd1dAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMLaTguSg98GpJA2YbAgEQgDuxzOShN0dnpJ+0sJ4bhoFI6RSPdBNwVI7uPjs8Pwcqc13og/bHVzrr6FdWGIRFkkOPwJRvfVoNmvELnA==
 config:
   aws:region: eu-west-1
+  pulumi-ecs:app:
+    secret_key:
+      secure: v1:65d+ccdxqGaUV1wK:WIxbXvMdQIlTzLLX5Jsz2eJwP/d66ODmMRSm+cfESthP4XH6Yb5sAN3fy/Vkg9j5nJf/+pezWtrx6Ts0rbJiJvS/
+  pulumi-ecs:ecr:
+  - name: mfdw_site
+  pulumi-ecs:rds:
+    allocated_storage: 10
+    availability_zone: eu-west-1a
+    backup_window: 02:00-03:00
+    db_name:
+      secure: v1:6L17mefDBTYaHHHU:iB1NWy7ikKb1nHDO0Zc0JZqmFCc=
+    engine: postgres
+    engine_version: 13.7
+    instance_class: db.t3.micro
+    maintenance_window: sun:03:00-sun:05:00
+    multi_az: false
+    password:
+      secure: v1:366PUTzvsg+QbvDJ:KpIPlh/q3yq6kCgophMfaWVHJdiCOcxaIGPaAHTTC9UMM1Lf
+    username:
+      secure: v1:/quzbafS+19nSvDE:JVN9ghXO9gXNNoFMYlofdHa//l4=
+  pulumi-ecs:service:
+  - cpu: 512
+    image: 191998317647.dkr.ecr.eu-west-1.amazonaws.com/mfdw_site
+    memory: 128
+    name: mfdw-site
+    tag: latest
   pulumi-ecs:vpc:
     vpc_cidr: 10.10.0.0/16
