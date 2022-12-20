@@ -1,4 +1,4 @@
 import pulumi
 
 conf = pulumi.Config()
-env = pulumi.get_stack().split("-")[0]
+env = pulumi.get_stack()
